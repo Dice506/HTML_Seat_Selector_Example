@@ -1,85 +1,117 @@
+/*Updated to a new style*/
+* 
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    height: 100vh;
+    justify-content: center;
 }
 
-.container {
-  width: 90%;
-  max-width: 800px;
-  margin: 20px auto;
-  text-align: center;
+header {
+    margin-bottom: 20px;
+    font-size: 24px;
 }
 
-.seat-map {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
+/* Theater layout */
+#theater-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.seat-row {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
+#screen {
+    width: 80%;
+    height: 30px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
+/* Seat map grid */
+#seat-map {
+    display: grid;
+    grid-template-columns: repeat(8, 50px); /* 8 seats per row */
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+/* Seat styling */
 .seat {
-  width: 20px;
-  height: 20px;
-  margin: 5px;
-  cursor: pointer;
-  border-radius: 3px;
+    width: 50px;
+    height: 50px;
+    background-color: #28a745;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.seat.available {
-  background-color: #76c7c0;
+.seat.booked {
+    background-color: #dc3545; /* Red for booked */
+    cursor: not-allowed;
 }
 
-.seat.occupied {
-  background-color: #e74c3c;
+.seat.unavailable {
+    background-color: #6c757d; /* Grey for unavailable */
+    cursor: not-allowed;
 }
 
 .seat.selected {
-  background-color: #3498db;
+    background-color: #ffc107; /* Yellow for selected */
 }
 
-.controls {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  background-color: #fff;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-#book-btn {
-  padding: 10px 20px;
-  border: none;
-  background-color: #3498db;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-@media (max-width: 768px) {
-  .seat {
-    width: 30px;
-    height: 30px;
-  }
-
-  #book-btn {
-    width: 100%;
-    padding: 15px;
+#selected-seats {
+    margin-top: 20px;
     font-size: 18px;
-  }
+}
 
-  .controls {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    left: 0;
-    right: 0;
-  }
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #seat-map {
+        grid-template-columns: repeat(4, 40px); /* 4 seats per row */
+    }
+
+    .seat {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    #seat-map {
+        grid-template-columns: repeat(3, 30px); /* 3 seats per row */
+    }
+
+    .seat {
+        width: 30px;
+        height: 30px;
+    }
 }
