@@ -1,33 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sugarland Theaters Seat Selector</title>
-  <link rel="stylesheet" href="SeatSelectorStyle.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theater Seat Booking</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Sugarland Theaters Seat Selector</h1>
-    <div class="seat-map">
-      <div class="seat-row">
-        <div class="seat available" data-id="A1"></div>
-        <div class="seat occupied" data-id="A2"></div>
-        <div class="seat available" data-id="A3"></div>
-        <div class="seat available" data-id="A4"></div>
-      </div>
-      <div class="seat-row">
-        <div class="seat available" data-id="B1"></div>
-        <div class="seat occupied" data-id="B2"></div>
-        <div class="seat available" data-id="B3"></div>
-        <div class="seat available" data-id="B4"></div>
-      </div>
-      <!-- More rows as needed -->
-    </div>
-    <div class="controls">
-      <button id="book-btn">Book Selected Seats</button>
-    </div>
-  </div>
-  <script src="script.js"></script>
+
+<header>Book Your Seat</header>
+
+<div id="theater-container">
+    <div id="screen">SCREEN</div>
+    <div id="seat-map"></div>
+</div>
+
+<div id="selected-seats">Selected Seats: None</div>
+<button id="confirm-button" disabled>Confirm Booking</button>
+
+<script src="script.js"></script>
 </body>
 </html>
